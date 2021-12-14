@@ -10,7 +10,7 @@ export default function Login() {
 
   const userControl = (e) => {
     e.preventDefault();
-    console.log();
+
     const login = user.find(
       (data) =>
         data.userName === e.target.userName.value ||

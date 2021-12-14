@@ -1,27 +1,28 @@
 import React, { createContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { data, tweet } from "./data";
 export const mainContext = createContext();
 
 export default function Context({ children }) {
   const [userInfo, setUserInfo] = useState({});
-  const [tweetInfo, setTweetInfo] = useState({});
+  const [tweetInfo, setTweetInfo] = useState([]);
 
-  useEffect(() => {
-    console.log(userInfo);
-    setTweet();
-  }, [userInfo]);
+  useEffect(() => {}, [userInfo]);
+
+  const setTweet = () => {
+    const userTweets = tweet.filter((tweet) => tweet.userId === userInfo.id);
+    setTweetInfo(userTweets);
+  };
 
   const contextData = {
     user: {
       userInfo,
       setUserInfo,
     },
-  };
-
-  const setTweet = () => {
-    const malYagmur = tweet.filter((tweet) => tweet.userId == userInfo.id);
-    console.log(malYagmur);
+    tweet: {
+      tweetInfo,
+      setTweetInfo,
+      setTweet,
+    },
   };
 
   return (

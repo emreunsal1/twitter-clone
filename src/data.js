@@ -14,6 +14,19 @@ export const tweet = [
   {
     id: 1,
     userId: 2,
-    tweetContent: "hello twitter",
+    date: "14.12.2021",
+    text: "hello twitter",
+  },
+  {
+    id: 2,
+    userId: 1,
+    date: "14.12.2021",
+    text: "hello s",
+  },
+  {
+    id: 3,
+    userId: 2,
+    date: "14.12.2021",
+    text: "hello twitter",
   },
 ];
