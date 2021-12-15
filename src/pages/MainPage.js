@@ -5,6 +5,7 @@ import { tweet } from "../data";
 export default function MainPage() {
   const [newTweetText, setNewTweetText] = useState("");
   const context = useContext(mainContext);
+  const tweetContext = context.tweet.tweetInfo;
 
   useEffect(() => {
     context.tweet.setTweet();
@@ -20,12 +21,10 @@ export default function MainPage() {
       }/${current.getFullYear()}`,
       text: tweetText,
     };
-    context.tweet.setTweetInfo([...context.tweet.tweetInfo, newTweet]);
-
-    context.tweet.addTweet();
+    tweet.push(newTweet);
+    context.tweet.setTweet();
   };
 
-  const tweet = context.tweet.tweetInfo;
   return (
     <div>
       <input
@@ -36,7 +35,7 @@ export default function MainPage() {
         Add new Tweet
       </button>
       <ul>
-        {tweet.map((tweetInfo) => (
+        {tweetContext.map((tweetInfo) => (
           <li>{tweetInfo.text}</li>
         ))}
       </ul>

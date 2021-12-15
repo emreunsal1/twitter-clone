@@ -11,11 +11,6 @@ export default function Context({ children }) {
     setTweetInfo(userTweets);
   };
 
-  const addTweet = () => {
-    tweet.push(tweetInfo);
-    console.log(tweet);
-  };
-
   const contextData = {
     user: {
       userInfo,
@@ -25,7 +20,6 @@ export default function Context({ children }) {
       tweetInfo,
       setTweetInfo,
       setTweet,
-      addTweet,
     },
   };
 

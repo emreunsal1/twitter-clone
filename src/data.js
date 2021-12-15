@@ -10,7 +10,7 @@ export const user = [
     password: "kaan",
   },
 ];
-export const tweet = [
+export let tweet = [
   {
     id: 1,
     userId: 2,
@@ -22,11 +22,5 @@ export const tweet = [
     userId: 1,
     date: "14.12.2021",
     text: "hello s",
-  },
-  {
-    id: 3,
-    userId: 2,
-    date: "14.12.2021",
-    text: "hello twitter",
   },
 ];
