@@ -6,11 +6,14 @@ export default function Context({ children }) {
   const [userInfo, setUserInfo] = useState({});
   const [tweetInfo, setTweetInfo] = useState([]);
 
-  useEffect(() => {}, [userInfo]);
-
   const setTweet = () => {
     const userTweets = tweet.filter((tweet) => tweet.userId === userInfo.id);
     setTweetInfo(userTweets);
+  };
+
+  const addTweet = () => {
+    tweet.push(tweetInfo);
+    console.log(tweet);
   };
 
   const contextData = {
@@ -22,6 +25,7 @@ export default function Context({ children }) {
       tweetInfo,
       setTweetInfo,
       setTweet,
+      addTweet,
     },
   };
 
