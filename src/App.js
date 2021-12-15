@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Context from "./context";
+import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import MainPage from "./pages/MainPage";
 function App() {
@@ -7,12 +8,14 @@ function App() {
     <div>
       <Router>
         <Context>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route path="/main">
-            <MainPage />
-          </Route>
+          <Layout>
+            <Route exact path="/">
+              <Login />
+            </Route>
+            <Route path="/main">
+              <MainPage />
+            </Route>
+          </Layout>
         </Context>
       </Router>
     </div>
