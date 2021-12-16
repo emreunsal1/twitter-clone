@@ -19,8 +19,8 @@ export let tweet = [
     date: "14.12.2021",
     text: "hello twitter",
     media: {
-      Url: "",
-      Type: "",
+      url: "",
+      type: "",
     },
   },
   {
