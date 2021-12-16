@@ -18,11 +18,19 @@ export let tweet = [
     userId: 2,
     date: "14.12.2021",
     text: "hello twitter",
+    media: {
+      Url: "",
+      Type: "",
+    },
   },
   {
     id: 2,
     userId: 1,
     date: "14.12.2021",
     text: "hello s",
+    media: {
+      url: "",
+      type: "",
+    },
   },
 ];
