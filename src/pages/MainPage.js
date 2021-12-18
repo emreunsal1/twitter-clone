@@ -5,13 +5,13 @@ import AddTweet from "./../components/AddTweet";
 export default function MainPage() {
   const context = useMainContext();
   const { allTweets } = context.tweet;
-  console.log(context.tweet.allTweets);
+
   return (
     <div>
       <AddTweet />
       <ul>
-        {allTweets.map((tweetInfo) => (
-          <TweetCard tweetInfo={tweetInfo} />
+        {allTweets.map((tweet) => (
+          <TweetCard tweet={tweet} />
         ))}
       </ul>
     </div>

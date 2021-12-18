@@ -3,50 +3,60 @@ import { useMainContext } from "./../context";
 
 export default function AddTweet() {
   const [newTweetText, setNewTweetText] = useState("");
-  const [movieInfo, setMovieInfo] = useState({ url: "", type: "" });
+  const [medias, setMedias] = useState([]);
 
   const context = useMainContext();
 
   const imagePreviev = (event) => {
-    [...event.target.files].map((file) => {
-      if (file.name.match(/\.jpeg|png|gif|jpg/)) {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.addEventListener("load", () =>
-          setMovieInfo({ url: reader.result, type: "jpg" })
-        );
-      } else {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.addEventListener("load", () =>
-          setMovieInfo({ url: reader.result, type: "mp4" })
-        );
-      }
+    const files = [...event.target.files].map((file) => {
+      const url = URL.createObjectURL(file);
+      return {
+        url,
+        type: file.name.match(/\.jpeg|jpg/) ? "jpg" : "mp4",
+      };
     });
+
+    setMedias(files);
   };
 
+  const clearInputs = () => {
+    setMedias([]);
+    setNewTweetText("");
+    const uploadInput = document.getElementById("uploadInput");
+    uploadInput.value = null;
+  };
+  const addTweet = () => {
+    context.tweet.addNewTweet(newTweetText, medias);
+    clearInputs();
+  };
   return (
     <div>
       <input
         type="text"
+        value={newTweetText}
         onChange={(e) => setNewTweetText(e.target.value)}
       ></input>
-      <button
-        type="submit"
-        onClick={() => context.tweet.addNewTweet(newTweetText, movieInfo)}
-      >
+      <button type="submit" onClick={() => addTweet()}>
         Add new Tweet
       </button>
-      <input type="file" onChange={(e) => imagePreviev(e)}></input>
-      {movieInfo.type === "jpg" ? (
-        <img src={movieInfo.url} width={300} height={"300"}></img>
-      ) : (
-        <video
-          controls="true"
-          src={movieInfo.url}
-          width={300}
-          height={"200"}
-        ></video>
+      <input
+        type="file"
+        id="uploadInput"
+        accept="image/jpg, image/jpeg, video/mp4"
+        multiple
+        onChange={(e) => imagePreviev(e)}
+      ></input>
+      {medias.map((media) =>
+        media.type === "jpg" ? (
+          <img src={media.url} width={300} height={"300"}></img>
+        ) : (
+          <video
+            controls="true"
+            src={media.url}
+            width={300}
+            height={"200"}
+          ></video>
+        )
       )}
     </div>
   );

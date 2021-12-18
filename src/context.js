@@ -8,7 +8,7 @@ export default function Context({ children }) {
 
   const myTweets = allTweets.filter((tweet) => tweet.userId === userInfo.id);
 
-  const addNewTweet = (tweetText, movies) => {
+  const addNewTweet = (tweetText, medias) => {
     const current = new Date();
     const newTweet = {
       id: current,
@@ -16,10 +16,7 @@ export default function Context({ children }) {
       date: current,
       dateText: "",
       text: tweetText,
-      media: {
-        url: movies.url,
-        type: movies.type,
-      },
+      media: medias,
     };
     setAllTweets([newTweet, ...allTweets]);
   };

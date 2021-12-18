@@ -1,22 +1,17 @@
 import React from "react";
-import { context } from "../context";
 
-export default function TweetCard({ tweetInfo }) {
+export default function TweetCard({ tweet }) {
   return (
     <div>
-      <li>{tweetInfo.text}</li>
+      <li>{tweet.text}</li>
       <li>
-        {tweetInfo.media.url != "" &&
-          (tweetInfo.media.type === "jpg" ? (
-            <img width={300} height={300} src={tweetInfo.media.url}></img>
+        {tweet.media.map((media) =>
+          media.type === "jpg" ? (
+            <img width={300} height={300} src={media.url} alt="foto" />
           ) : (
-            <video
-              width={300}
-              height={300}
-              controls="true"
-              src={tweetInfo.media.url}
-            ></video>
-          ))}
+            <video width={300} height={300} controls="true" src={media.url} />
+          )
+        )}
       </li>
     </div>
   );
