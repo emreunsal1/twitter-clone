@@ -1,6 +1,6 @@
-import TweetCard from "../components/TweetCard";
 import { useMainContext } from "./../context";
 import AddTweet from "./../components/AddTweet";
+import TweetWrapper from "../components/TweetWrapper";
 
 export default function MainPage() {
   const context = useMainContext();
@@ -10,9 +10,7 @@ export default function MainPage() {
     <div>
       <AddTweet />
       <ul>
-        {allTweets.map((tweet) => (
-          <TweetCard tweet={tweet} />
-        ))}
+        <TweetWrapper tweets={allTweets} />
       </ul>
     </div>
   );
