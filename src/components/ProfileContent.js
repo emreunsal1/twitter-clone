@@ -5,6 +5,7 @@ export default function ProfileContent() {
   const { userInfo } = context.user;
   return (
     <div>
+      Burası Profile
       <ul>
         <li>{userInfo.name}</li>
         <li>{userInfo.birthDate}</li>

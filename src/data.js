@@ -17,11 +17,11 @@ export const user = [
     password: "kaan",
     profilePhoto: "",
     coverPhoto: "",
-    description: "",
-    name: "",
-    birthDate: "",
-    followerCount: "",
-    followingCount: "",
+    description: "Ben kaan Ersoy",
+    name: "Kaan Ersoy",
+    birthDate: "17.02.1999",
+    followerCount: "100",
+    followingCount: "200",
   },
 ];
 export let tweet = [
@@ -30,6 +30,7 @@ export let tweet = [
     userId: 2,
     date: "14.12.2021",
     text: "hello twitter",
+    like: 3,
     media: [],
   },
   {
@@ -37,6 +38,7 @@ export let tweet = [
     userId: 1,
     date: "14.12.2021",
     text: "hello s",
+    like: 5,
     media: [],
   },
 ];
