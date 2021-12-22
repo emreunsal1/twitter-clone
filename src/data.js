@@ -30,7 +30,7 @@ export let tweet = [
     userId: 2,
     date: "14.12.2021",
     text: "hello twitter",
-    like: 3,
+    like: 4,
     media: [],
   },
   {

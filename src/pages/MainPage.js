@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function MainPage() {
   const context = useMainContext();
   const { userName } = context.user.userInfo;
-  const { allTweets } = context.tweet;
+  const { allTweetsByDate } = context.tweet;
   const link = `/profile/${userName}`;
 
   return (
@@ -14,7 +14,7 @@ export default function MainPage() {
       <AddTweet />
       <Link to={link}>profile</Link>
       <ul>
-        <TweetWrapper tweets={allTweets} />
+        <TweetWrapper tweets={allTweetsByDate} />
       </ul>
     </div>
   );
