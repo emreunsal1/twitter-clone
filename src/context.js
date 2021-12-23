@@ -22,10 +22,13 @@ export default function Context({ children }) {
     };
     setAllTweets([newTweet, ...allTweets]);
   };
+  const allTweetsByDate = () =>
+    [...allTweets].sort((a, b) => {
+      return b.date - a.date;
+    });
 
   const addLike = (id, isLiked) => {
     const likedTweet = allTweets.find((tweet) => tweet.id === id);
-    console.log(likedTweets);
     if (isLiked) {
       likedTweet.like--;
       const newLikeArray = likedTweets.filter((tweetId) => tweetId !== id);
@@ -37,15 +40,11 @@ export default function Context({ children }) {
     const otherTweets = allTweets.filter((tweet) => tweet.id !== id);
     setAllTweets([...otherTweets, likedTweet]);
   };
-
-  const allTweetsByDate = allTweets.sort((a, b) => {
-    return a.date - b.date;
-  });
-
   const contextData = {
     user: {
       userInfo,
       likedTweets,
+      setUserInfo,
     },
     tweet: {
       myTweets,
