@@ -31,10 +31,10 @@ export default function Login() {
       </div>
       <div className="login-content">
         <form onSubmit={(e) => userControl(e)}>
-          <input name="userName" placeholder="User Name" type="text"></input>
-          <label className="user-label">User Name</label>
-          <input name=" password" placeholder="Password" type="text"></input>
-          <label className="password-label">Password</label>
+          <input name="userName" className="input-username" type="text"></input>
+          <label className="username">User Name</label>
+          <input name="password" className="input-password" type="text"></input>
+          <label className="password">Password</label>
 
           <button name="button" type="submit">
             Giriş

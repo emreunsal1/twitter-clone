@@ -16,23 +16,46 @@
     display: flex;
     justify-content: center;
     text-align: center;
+
     form {
       width: 100%;
       margin: 0 auto;
+      position: relative;
       input {
         display: block;
-        margin: 15px auto;
+        margin: 30px auto;
         width: 50%;
         height: 30px;
         background-color: transparent;
         border: 1px solid #2d3a46;
         color: white;
-        &:focus {
+        &.input-username {
+          &:focus ~ label {
+            &.username {
+              top: 10px;
+            }
+          }
+        }
+        &.input-password {
+          &:focus ~ label,
+          &.input-password:not(:focus):valid ~ &.password {
+            top: 75px;
+          }
         }
       }
-      .user-label {
-      }
-      .password-label {
+      label {
+        position: absolute;
+        color: white;
+
+        transition: 400ms;
+        &.username {
+          top: 40px;
+          left: 330px;
+        }
+        &.password {
+          top: 105px;
+          left: 330px;
+        }
       }
       button {
         width: 50%;
