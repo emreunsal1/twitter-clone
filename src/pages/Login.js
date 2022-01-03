@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { mainContext } from "../context";
 import { user } from "../data";
@@ -36,6 +36,7 @@ export default function Login() {
               name="userName"
               className="input-username"
               type="text"
+              required
             ></input>
             <label className="username">User Name</label>
           </div>
@@ -44,6 +45,7 @@ export default function Login() {
               name="password"
               className="input-password"
               type="text"
+              required
             ></input>
             <label className="password">Password</label>
           </div>

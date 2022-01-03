@@ -4,7 +4,6 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import MainPage from "./pages/MainPage";
 import Profile from "./pages/Profile";
-import SideMenu from "./components/SideMenu";
 import "./style/main.scss";
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
       <Router>
         <Context>
           <Layout>
-            <SideMenu />
             <Route exact path="/">
               <Login />
             </Route>
