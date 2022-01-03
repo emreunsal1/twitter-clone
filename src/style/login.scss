@@ -13,50 +13,39 @@
   .login-content {
     width: 80%;
     margin: 0 auto;
-    display: flex;
+
     justify-content: center;
     text-align: center;
 
     form {
       width: 100%;
       margin: 0 auto;
-      position: relative;
-      input {
-        display: block;
+      .input-group {
+        position: relative;
         margin: 30px auto;
-        width: 50%;
         height: 30px;
-        background-color: transparent;
-        border: 1px solid #2d3a46;
-        color: white;
-        &.input-username {
-          &:focus ~ label {
-            &.username {
-              top: 10px;
-            }
-          }
+        width: 50%;
+        label {
+          position: absolute;
+          color: white;
+          top: 10px;
+          left: 7px;
+          transition: 500ms;
         }
-        &.input-password {
+        input {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background-color: transparent;
+          border: 1px solid #2d3a46;
+          color: white;
           &:focus ~ label,
-          &.input-password:not(:focus):valid ~ &.password {
-            top: 75px;
+          &:not(:focus):valid ~ label {
+            top: -20px;
           }
         }
       }
-      label {
-        position: absolute;
-        color: white;
 
-        transition: 400ms;
-        &.username {
-          top: 40px;
-          left: 330px;
-        }
-        &.password {
-          top: 105px;
-          left: 330px;
-        }
-      }
       button {
         width: 50%;
         border-radius: 5px;
