@@ -7,9 +7,8 @@ import "../style/mainPage.scss";
 
 export default function MainPage() {
   const context = useMainContext();
-  const { userName } = context.user.userInfo;
+  const { link } = context.user;
   const { allTweetsByDate } = context.tweet;
-  const link = `/profile/${userName}`;
 
   return (
     <div className="main-container">

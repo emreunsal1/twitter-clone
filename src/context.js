@@ -8,6 +8,7 @@ export default function Context({ children }) {
   const [likedTweets, setLikedTweets] = useState([]);
 
   const myTweets = allTweets.filter((tweet) => tweet.userId === userInfo.id);
+  const link = `/profile/${userInfo.userName}`;
 
   const addNewTweet = (tweetText, medias) => {
     const current = new Date().getTime();
@@ -45,6 +46,7 @@ export default function Context({ children }) {
       userInfo,
       likedTweets,
       setUserInfo,
+      link,
     },
     tweet: {
       myTweets,

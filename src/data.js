@@ -15,7 +15,8 @@ export const user = [
     id: 2,
     userName: "kaan",
     password: "kaan",
-    profilePhoto: "",
+    profilePhoto:
+      "https://pbs.twimg.com/profile_images/1467119604837269508/eQ1t3aM1_400x400.jpg",
     coverPhoto: "",
     description: "Ben kaan Ersoy",
     name: "Kaan Ersoy",
