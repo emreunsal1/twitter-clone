@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useMainContext } from "../context";
 import TweetButtonGroup from "./TweetButtonGroup";
+import { user } from "../data";
 
 export default function TweetCard({ tweet }) {
   const context = useMainContext();
 
+  const userInfo = user.find((user) => user.id === tweet.userId);
+
   return (
-    <div style={{ border: "1px solid", marginBottom: "30px" }}>
+    <div className="tweet-content">
       <li>
+        {userInfo.name}
         {tweet.text}
         <p>{tweet.like}</p>
       </li>

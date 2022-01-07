@@ -3,7 +3,7 @@ import TweetCard from "./TweetCard";
 
 export default function TweetWrapper({ tweets }) {
   return (
-    <div>
+    <div className="tweet-container">
       {tweets.map((tweet) => (
         <TweetCard tweet={tweet} />
       ))}

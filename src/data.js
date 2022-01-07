@@ -6,7 +6,7 @@ export const user = [
     profilePhoto: "",
     coverPhoto: "",
     description: "",
-    name: "",
+    name: "Emre Ünsal",
     birthDate: "",
     followerCount: "",
     followingCount: "",
