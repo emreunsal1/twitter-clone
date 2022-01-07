@@ -1,8 +1,25 @@
 .add-tweet-container {
+  .add-tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      cursor: pointer;
+    }
+  }
   .add-tweet-content {
     display: flex;
+    margin-left: 0px;
     margin-bottom: 30px;
-    .image-container {
+    .image-profile-container {
       width: 60px;
       height: 60px;
       margin-right: 30px;
@@ -13,7 +30,7 @@
       }
     }
     .textarea-container {
-      width: 450px;
+      width: 500px;
       textarea {
         width: 100%;
         height: 100px;
@@ -26,9 +43,94 @@
         overflow: unset;
         border-style: none;
         font-size: 20px;
+        &:focus {
+          border-bottom: 1px solid rgba(83, 83, 83, 0.698);
+        }
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+      .tweet-medias {
+        display: flex;
+        margin: 0 0;
+        flex-wrap: wrap;
+        .add-image {
+          position: relative;
+          width: calc(50% - 10px);
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+          .delete-button {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 5px;
+            left: 5px;
+            padding: 10px 10px;
+            background-color: #444749;
+            border-radius: 999999px;
+          }
+
+          img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+          }
+        }
+        & .one {
+          width: 100%;
+          margin: 0 auto;
+        }
+        .add-video {
+          video {
+          }
+        }
+      }
+      .add-tweet-button {
+        width: 20px;
+        height: 20px;
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+        cursor: pointer;
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: $primary;
+        }
       }
     }
   }
   .add-tweet-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    .media-buttons {
+      display: flex;
+      justify-content: center;
+    }
+    .send-button {
+      padding: 5px 10px;
+      background-color: $primary;
+      border-radius: 9999999px;
+      pointer-events: none;
+      opacity: 0.5;
+      user-select: none;
+    }
+    & .edit {
+      cursor: pointer;
+      pointer-events: all;
+      opacity: 1;
+      user-select: all;
+    }
   }
 }

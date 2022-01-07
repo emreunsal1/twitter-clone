@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import { mainContext } from "../context";
 import { user } from "../data";
 import { ReactComponent as TwitterIcon } from "../components/icons/twitter.svg";
-import "../style/login.scss";
 
 export default function Login() {
   const context = useContext(mainContext);
@@ -36,6 +35,7 @@ export default function Login() {
               name="userName"
               className="input-username"
               type="text"
+              value="kaan"
               required
             ></input>
             <label className="username">User Name</label>
@@ -44,6 +44,7 @@ export default function Login() {
             <input
               name="password"
               className="input-password"
+              value="kaan"
               type="text"
               required
             ></input>

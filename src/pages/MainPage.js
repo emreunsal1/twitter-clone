@@ -3,7 +3,6 @@ import AddTweet from "./../components/AddTweet";
 import TweetWrapper from "../components/TweetWrapper";
 import { Link } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
-import "../style/mainPage.scss";
 
 export default function MainPage() {
   const context = useMainContext();

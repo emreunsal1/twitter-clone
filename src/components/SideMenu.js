@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../style/sideMenu.scss";
 import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
 import { useMainContext } from "./../context";
 import { ReactComponent as HomeIcon } from "./icons/home.svg";

@@ -1,5 +1,4 @@
 .side-menu-container {
-  margin-left: 200px;
   .side-header {
     .header-icon {
       width: 30px;
@@ -14,25 +13,27 @@
   }
   .list {
     a {
+      font-weight: lighter;
       width: 100%;
       display: block;
-      font-size: 20px;
+      font-size: 18px;
+      padding: 15px;
       text-decoration: none;
       color: white;
+      margin: 4px 0;
       svg {
         fill: white;
         width: 30px;
         height: 30px;
       }
 
-      &:not(:last-child) {
-        margin-bottom: 20px;
-      }
       &.button {
-        background-color: aqua;
+        background-color: $primary;
         text-align: center;
-        border-radius: 30px;
-        font-weight: 900;
+        border-radius: 9999999px;
+        padding: 15px 0px;
+        font-weight: bold;
+        margin-top: 15px;
       }
     }
   }

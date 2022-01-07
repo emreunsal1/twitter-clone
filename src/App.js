@@ -5,9 +5,10 @@ import Login from "./pages/Login";
 import MainPage from "./pages/MainPage";
 import Profile from "./pages/Profile";
 import "./style/main.scss";
+
 function App() {
   return (
-    <div>
+    <div className="index-wrapper">
       <Router>
         <Context>
           <Layout>
