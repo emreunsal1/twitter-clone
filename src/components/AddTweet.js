@@ -44,9 +44,18 @@ export default function AddTweet() {
     const newMedias = medias.filter((media) => media.url !== url);
     setMedias(newMedias);
   };
+
+  const filesLimit = () => {
+    if (medias.length > 3) {
+      medias.pop();
+      filesLimit();
+    }
+    return;
+  };
+
   useEffect(() => {
+    filesLimit();
     mediasPosition();
-    console.log(medias);
   }, [medias]);
 
   return (
