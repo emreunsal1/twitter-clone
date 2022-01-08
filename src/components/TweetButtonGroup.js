@@ -1,17 +1,21 @@
 import React from "react";
 import { useMainContext } from "../context";
+import { ReactComponent as Like } from "./icons/like.svg";
+import { ReactComponent as Share } from "./icons/share.svg";
+import { ReactComponent as Retweet } from "./icons/retweet.svg";
+import { ReactComponent as Comment } from "./icons/comment.svg";
 
 export default function TweetButtonGroup({ tweet }) {
   const context = useMainContext();
   const { addLike, retweet } = context.tweet;
-
   const isLiked = context.user.likedTweets.some((item) => tweet.id === item);
 
   return (
-    <div>
-      <button onClick={() => addLike(tweet.id, isLiked)}>like</button>
-      <button onClick={() => retweet(tweet.id)}>Rt</button>
-      <button>share</button>
+    <div className="tweet-button-container">
+      <Comment />
+      <Retweet />
+      <Like onClick={() => addLike(tweet.id, isLiked)}>like</Like>
+      <Share />
     </div>
   );
 }

@@ -16,7 +16,6 @@ export default function MainPage() {
       </div>
       <div className="content">
         <AddTweet />
-        <Link to={link}>profile</Link>
         <TweetWrapper tweets={allTweetsByDate()} />
       </div>
     </div>

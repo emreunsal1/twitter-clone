@@ -46,7 +46,7 @@ export default function AddTweet() {
   };
 
   const filesLimit = () => {
-    if (medias.length > 3) {
+    if (medias.length > 4) {
       medias.pop();
       filesLimit();
     }

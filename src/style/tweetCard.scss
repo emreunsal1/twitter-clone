@@ -1,9 +1,13 @@
 .tweet-container {
-  max-width: 500px;
+  min-width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  margin: 0 0;
   .tweet-content {
+    width: 100%;
     margin-bottom: 20px;
     display: flex;
-    justify-content: flex-start;
     .profile-photo {
       max-height: 60px;
       max-width: 60px;
@@ -34,12 +38,33 @@
         margin-bottom: 8px;
       }
       .tweet-media {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
+        .image-container {
+          width: calc(50% - 10px);
+          margin-bottom: 10px;
+          height: 260px;
+          margin-right: 10px;
 
-        img {
-          border-radius: 10px;
-          width: 50%;
+          &:not(:last-child) {
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+          }
+        }
+        & .one {
+          width: 100%;
+          margin: 0;
+          min-height: 400px;
+          img {
+            width: 100%;
+            margin: 0;
+            height: 100%;
+          }
         }
       }
     }
