@@ -12,10 +12,19 @@ export default function TweetButtonGroup({ tweet }) {
 
   return (
     <div className="tweet-button-container">
-      <Comment />
-      <Retweet />
-      <Like onClick={() => addLike(tweet.id, isLiked)}>like</Like>
-      <Share />
+      <div className="icon-container">
+        <Comment />
+      </div>
+      <div className="icon-container">
+        <Retweet />
+      </div>
+      <div className="icon-container like">
+        <Like onClick={() => addLike(tweet.id, isLiked)}>like</Like>
+        <p>{tweet.like}</p>
+      </div>
+      <div className="icon-container">
+        <Share />
+      </div>
     </div>
   );
 }

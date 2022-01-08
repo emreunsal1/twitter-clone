@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMainContext } from "../context";
 import TweetButtonGroup from "./TweetButtonGroup";
 import { user } from "../data";
+import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
 
 export default function TweetCard({ tweet, tweetMedias }) {
   const context = useMainContext();
@@ -23,9 +24,14 @@ export default function TweetCard({ tweet, tweetMedias }) {
           <img src={userInfo.profilePhoto}></img>
         </div>
         <div className="tweet-info">
-          <div className="user-info">
-            <h4>{userInfo.name}</h4>
-            <h5>{"@" + userInfo.userName}</h5>
+          <div className="header">
+            <div className="user-info">
+              <h4>{userInfo.name}</h4>
+              <h5>{"@" + userInfo.userName}</h5>
+            </div>
+            <div className="expanded-button">
+              <ExpandedIcon />
+            </div>
           </div>
           <div className="tweet-text">{tweet.text}</div>
           <div className="tweet-media">
