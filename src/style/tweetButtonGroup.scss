@@ -20,8 +20,8 @@
         fill: rgb(110, 118, 125);
         border-radius: 99999px;
         transition: 300ms;
-        &:hover,
-        ~ p {
+
+        &:hover {
           fill: #f91880;
           background-color: #200914;
           cursor: pointer;
@@ -31,9 +31,18 @@
       p {
         margin: 0;
         position: absolute;
-        top: 5px;
-        right: -15px;
+        top: 7px;
+        font-size: 13px;
+        right: -20px;
         color: rgb(110, 118, 125);
+      }
+    }
+    & .like {
+      svg {
+        fill: #f91880;
+      }
+      p {
+        color: #f91880;
       }
     }
   }

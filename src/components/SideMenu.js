@@ -1,37 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
-import { useMainContext } from "./../context";
-import { ReactComponent as HomeIcon } from "./icons/home.svg";
+import AgentaContent from "./AgentaContent";
+import { ReactComponent as OptinosIcon } from "./icons/options.svg";
+import { ReactComponent as SearchIcon } from "./icons/search.svg";
+import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
 
 export default function SideMenu() {
-  const context = useMainContext();
-  const { link } = context.user;
   return (
     <div className="side-menu-container">
-      <div className="side-header">
-        <div className="header-icon">
-          <TwitterIcon />
+      <div className="side-menu-search">
+        <div className="svg-container">
+          <SearchIcon />
+        </div>
+        <input type="text" placeholder="Twitter'da Ara"></input>
+        <div className="delete-button">
+          <DeleteIcon />
         </div>
       </div>
-      <div className="list">
-        <Link>
-          <HomeIcon /> Anasayfa
-        </Link>
-        <Link>Keşfet</Link>
-        <Link>Bildirimler</Link>
-        <Link>Mesajlar</Link>
-        <Link>Yer İşaretleri</Link>
-        <Link>Listeler</Link>
-        <Link to={link}>Profil</Link>
-        <Link>Daha Fazla</Link>
-        <Link className="button">Tweetle</Link>
-      </div>
-      <div className="footer">
-        <img src=""></img>
-        <div className="user-content">
-          <h5></h5>
-          <p></p>
+      <div className="agenda-container">
+        <div className="agenda-header">
+          <h2>Türkiye Gündemdekiler</h2>
+          <OptinosIcon />
+        </div>
+        <div className="agenda-content">
+          <AgentaContent text={"Suriyeliler"} />
         </div>
       </div>
     </div>
