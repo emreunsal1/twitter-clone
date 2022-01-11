@@ -1,0 +1,41 @@
+.profile-container {
+  .profile-header {
+  }
+  .profile-cover {
+    img {
+    }
+  }
+  .profile-content {
+    &-header {
+      .profile-photo {
+        position: relative;
+        z-index: 9999;
+        margin-top: -75px;
+        width: 150px;
+        height: 150px;
+        border: 5px solid #000;
+        border-radius: 999999px;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+        }
+      }
+      .button-group {
+      }
+    }
+    &-userInfo {
+      h2 {
+      }
+      p {
+      }
+      h5 {
+      }
+      .birthDate {
+      }
+      .follow-info {
+        .followers {
+        }
+      }
+    }
+  }
+}

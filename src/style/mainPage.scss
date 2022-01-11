@@ -1,10 +1,19 @@
+$headerWidth: 250px;
+$sideMenuWidth: 350px;
+
 .main-container {
   display: flex;
+  width: 100%;
 
   .header {
-    width: 250px;
+    width: $headerWidth;
   }
   .content {
     border: 1px solid #4e5358;
+    border-top: none;
+    width: $pageWidth - $headerWidth - $sideMenuWidth;
+  }
+  .side-menu-container {
+    width: $sideMenuWidth;
   }
 }

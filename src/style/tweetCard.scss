@@ -1,97 +1,97 @@
 .tweet-container {
-  min-width: 600px;
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
-  .tweet-content {
-    width: 100%;
-    display: flex;
+
+  .tweet-card {
     border-bottom: 1px solid #4e5358;
-    padding: 10px 0px;
 
-    .profile-photo {
-      padding: 5px 5px;
-      max-height: 50px;
-      max-width: 50px;
-      min-height: 50px;
-      min-width: 50px;
-      margin-right: 10px;
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 99999px;
-      }
-    }
-    .tweet-info {
+    .tweet-content {
       width: 100%;
-      .header {
-        display: flex;
-        justify-content: space-between;
-        padding-right: 10px;
-        align-items: center;
-        .user-info {
-          display: flex;
-          margin: 0;
-          margin-bottom: 10px;
-          align-items: center;
-          h4 {
-            margin: 0;
-          }
-          h5 {
-            margin: 0px 3px;
-            color: #4e5358;
-          }
+      display: flex;
+      padding: 10px;
+
+      .profile-photo {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 99999px;
+          object-fit: cover;
         }
-        .expanded-button {
-          width: 23px;
-          height: 23px;
-          cursor: pointer;
+      }
+      .tweet-info {
+        width: 100%;
+        .header {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          align-items: center;
+          .user-info {
+            display: flex;
+            margin: 0;
+            margin-bottom: 10px;
+            align-items: center;
+            h4 {
+              margin: 0;
+            }
+            h5 {
+              margin: 0px 3px;
+              color: #4e5358;
+            }
+          }
+          .expanded-button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
 
-          svg {
-            width: 100%;
-            height: 100%;
-            fill: #444749;
-            padding: 3px;
+            svg {
+              width: 100%;
+              height: 100%;
+              fill: #444749;
+              padding: 5px;
 
-            &:hover {
-              fill: #135987;
-              background-color: #0a171f;
-              border-radius: 999999px;
-              transition: 300ms;
+              &:hover {
+                fill: #135987;
+                background-color: #0a171f;
+                border-radius: 999999px;
+                transition: 300ms;
+              }
             }
           }
         }
-      }
 
-      .tweet-text {
-        margin-bottom: 8px;
-      }
-      .tweet-media {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        .image-container {
-          width: calc(50% - 10px);
-          margin-bottom: 10px;
-          height: 260px;
-          margin-right: 10px;
-
-          &:not(:last-child) {
-          }
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-          }
+        .tweet-text {
+          margin-bottom: 8px;
         }
-        & .one {
-          width: 98%;
-          margin: 0 auto;
-          min-height: 400px;
-          img {
+        .tweet-media {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          border-radius: 10px;
+          overflow: hidden;
+          .image-container {
+            width: calc(50%);
+            height: 200px;
+
+            &:not(:last-child) {
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          & .one {
             width: 100%;
-            margin: 0;
-            height: 100%;
+            margin: 0 auto;
+            min-height: 400px;
+            img {
+              width: 100%;
+              margin: 0;
+              height: 100%;
+            }
           }
         }
       }

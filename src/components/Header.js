@@ -15,7 +15,7 @@ export default function Header() {
         </div>
       </div>
       <div className="list">
-        <Link>
+        <Link to="/main">
           <HomeIcon /> Anasayfa
         </Link>
         <Link>Keşfet</Link>

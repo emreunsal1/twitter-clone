@@ -41,6 +41,7 @@ export default function Context({ children }) {
     const otherTweets = allTweets.filter((tweet) => tweet.id !== id);
     setAllTweets([...otherTweets, likedTweet]);
   };
+
   const contextData = {
     user: {
       userInfo,

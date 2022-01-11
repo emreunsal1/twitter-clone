@@ -19,7 +19,7 @@ export default function AddTweet() {
       };
     });
 
-    setMedias(files);
+    setMedias(files.slice(0, 4));
   };
 
   const clearInputs = () => {
@@ -33,30 +33,12 @@ export default function AddTweet() {
     clearInputs();
   };
 
-  const mediasPosition = () => {
-    const mediasClassName = document.querySelector("#add-medias");
-    if (medias.length === 1) {
-      mediasClassName.className = "add-image one";
-      return;
-    }
-  };
+  const mediasClassName = medias.length === 1 ? "add-image one" : "add-image";
+
   const deleteMediaItem = (url) => {
     const newMedias = medias.filter((media) => media.url !== url);
     setMedias(newMedias);
   };
-
-  const filesLimit = () => {
-    if (medias.length > 4) {
-      medias.pop();
-      filesLimit();
-    }
-    return;
-  };
-
-  useEffect(() => {
-    filesLimit();
-    mediasPosition();
-  }, [medias]);
 
   return (
     <div className="add-tweet-container">
@@ -71,7 +53,7 @@ export default function AddTweet() {
         <div className="textarea-container">
           <textarea
             onInput={(e) => setNewTweetText(e.target.value)}
-            placeholder="What do you do ?"
+            placeholder="Neler oluyor?"
             value={newTweetText}
           >
             {newTweetText}
@@ -79,7 +61,7 @@ export default function AddTweet() {
           <div className="tweet-medias">
             {medias.map((media) =>
               media.type === "jpg" ? (
-                <div id="add-medias" className="add-image">
+                <div id="add-medias" className={mediasClassName}>
                   <img src={media.url} width={300} height={"300"}></img>
                   <div
                     className="delete-button"

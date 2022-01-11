@@ -18,7 +18,7 @@ export default function TweetCard({ tweet, tweetMedias }) {
   };
 
   return (
-    <div>
+    <div className="tweet-card">
       <div className="tweet-content">
         <div className="profile-photo">
           <img src={userInfo.profilePhoto}></img>

@@ -11,17 +11,9 @@ export default function MainPage() {
   const { allTweetsByDate } = context.tweet;
 
   return (
-    <div className="main-container">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="content">
+    <div >
         <AddTweet />
         <TweetWrapper tweets={allTweetsByDate()} />
-      </div>
-      <div className="side-menu">
-        <SideMenu />
-      </div>
     </div>
   );
 }

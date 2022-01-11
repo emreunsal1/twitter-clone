@@ -11,17 +11,19 @@ function App() {
     <div className="index-wrapper">
       <Router>
         <Context>
-          <Layout>
-            <Route exact path="/">
-              <Login />
-            </Route>
-            <Route path="/profile/:username">
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/profile/:username">
+            <Layout>
               <Profile />
-            </Route>
-            <Route path="/main">
+            </Layout>
+          </Route>
+          <Route path="/main">
+            <Layout>
               <MainPage />
-            </Route>
-          </Layout>
+            </Layout>
+          </Route>
         </Context>
       </Router>
     </div>
