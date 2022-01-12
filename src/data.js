@@ -5,7 +5,8 @@ export const user = [
     password: "emre26",
     profilePhoto:
       "https://pbs.twimg.com/profile_images/1467119604837269508/eQ1t3aM1_400x400.jpg",
-    coverPhoto: "",
+    coverPhoto:
+      "https://pbs.twimg.com/profile_banners/2276115673/1560366497/1500x500",
     description: "",
     name: "Emre Ünsal",
     birthDate: "",

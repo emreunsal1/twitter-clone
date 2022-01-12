@@ -1,13 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useMainContext } from "../context";
+import ProfilePhoto from "./ProfilePhoto";
 import TweetButtonGroup from "./TweetButtonGroup";
 import { user } from "../data";
 import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
+import { ReactComponent as DeleteIcon } from "./icons/delete.svg";
+
+import PopupMenu from "./PopupMenu";
 
 export default function TweetCard({ tweet, tweetMedias }) {
+  const [popupOpened, setPopupOpened] = useState(false);
+
   const context = useMainContext();
 
   const userInfo = user.find((user) => user.id === tweet.userId);
+
+  const popupItems = [
+    {
+      icon: <DeleteIcon />,
+      content: "Sil",
+      onClick: () => {},
+      iconColor: "#F4212E",
+    },
+  ];
+  const popupStyle = { top: 10, right: 10 };
 
   const tweetMediaOneElement = () => {
     if (tweet.media.length === 1) {
@@ -21,7 +37,7 @@ export default function TweetCard({ tweet, tweetMedias }) {
     <div className="tweet-card">
       <div className="tweet-content">
         <div className="profile-photo">
-          <img src={userInfo.profilePhoto}></img>
+          <ProfilePhoto user={userInfo} size={45} />
         </div>
         <div className="tweet-info">
           <div className="header">
@@ -29,7 +45,12 @@ export default function TweetCard({ tweet, tweetMedias }) {
               <h4>{userInfo.name}</h4>
               <h5>{"@" + userInfo.userName}</h5>
             </div>
-            <div className="expanded-button">
+            <div
+              className="expanded-button"
+              tabIndex={-1}
+              onFocus={() => setPopupOpened(true)}
+              onBlur={() => setPopupOpened(false)}
+            >
               <ExpandedIcon />
             </div>
           </div>
@@ -57,6 +78,7 @@ export default function TweetCard({ tweet, tweetMedias }) {
           </div>
         </div>
       </div>
+      <PopupMenu style={popupStyle} items={popupItems} isOpened={popupOpened} />
     </div>
   );
 }

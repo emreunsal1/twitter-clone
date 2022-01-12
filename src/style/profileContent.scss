@@ -1,5 +1,39 @@
+$grayText: #6e767d;
+$whiteText: #d9d9d9;
+
 .profile-container {
+  border-bottom: 1px solid #6e767d;
   .profile-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    .back-button {
+      padding: 3px;
+      width: 30px;
+      height: 30px;
+      margin-left: 20px;
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: $whiteText;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .user-info {
+      margin-left: 20px;
+      h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      p {
+        margin: 0;
+        color: $grayText;
+        font-size: 12px;
+      }
+    }
   }
   .profile-cover {
     img {
@@ -7,33 +41,147 @@
   }
   .profile-content {
     &-header {
+      display: flex;
+      justify-content: space-between;
       .profile-photo {
         position: relative;
         z-index: 9999;
         margin-top: -75px;
-        width: 150px;
-        height: 150px;
+        margin-left: 15px;
         border: 5px solid #000;
         border-radius: 999999px;
         overflow: hidden;
-        img {
-          object-fit: cover;
-        }
       }
       .button-group {
+        .one-button {
+          margin-right: 10px;
+          margin-top: 10px;
+          border: 1px solid $whiteText;
+          border-radius: 50px;
+          padding: 7px 10px;
+          font-size: 15px;
+          transition: 100ms;
+          font-weight: 600;
+          &:hover {
+            cursor: pointer;
+            background-color: #181919;
+          }
+        }
+        .four-button {
+          display: flex;
+          align-items: center;
+          .expanded-button {
+            margin-right: 10px;
+            margin-top: 10px;
+            width: 30px;
+            height: 30px;
+            padding: 3px;
+            border: 1px solid $whiteText;
+            border-radius: 9999999px;
+            svg {
+              width: 100%;
+              height: 100%;
+              fill: $whiteText;
+            }
+            &:hover {
+              background-color: #1c1f23;
+              svg {
+                cursor: pointer;
+              }
+            }
+          }
+          .follow-button {
+            margin-right: 10px;
+            margin-top: 10px;
+            border: 1px solid $whiteText;
+            border-radius: 50px;
+            padding: 7px 10px;
+            font-size: 15px;
+            transition: 100ms;
+            background-color: $whiteText;
+            color: #000;
+            font-weight: 600;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
       }
     }
     &-userInfo {
+      margin-left: 15px;
+      margin-top: 10px;
       h2 {
+        margin: 0;
+        font-size: 18px;
       }
       p {
+        margin: 0;
+        color: $grayText;
       }
       h5 {
+        margin: 12px 0;
+        color: $whiteText;
+        font-weight: 500;
+        font-size: 16px;
       }
       .birthDate {
+        margin-bottom: 10px;
+        color: $grayText;
+        display: flex;
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: $grayText;
+          margin-right: 3px;
+        }
       }
       .follow-info {
+        display: flex;
+        color: $grayText;
+        span {
+          color: $whiteText;
+        }
         .followers {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+        margin-bottom: 13px;
+      }
+    }
+  }
+  .pages {
+    width: 100%;
+    .pages-bar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .page-name {
+        color: $whiteText;
+        padding: 20px;
+        transition: 100ms;
+        &:hover {
+          cursor: pointer;
+          background-color: #1c1f23;
+        }
+        &:not(:first-child) {
+          color: $grayText;
+          margin-left: 10px;
+        }
+        &:first-child {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            border-radius: 50px;
+            height: 5px;
+            bottom: 0;
+            left: 30px;
+            background-color: #1d9bf0;
+          }
         }
       }
     }

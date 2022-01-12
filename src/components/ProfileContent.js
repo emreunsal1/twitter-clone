@@ -1,32 +1,70 @@
 import React from "react";
-import { useMainContext } from "../context";
-export default function ProfileContent({ userInfo }) {
+import { ReactComponent as BackIcon } from "./icons/back.svg";
+import { ReactComponent as Ballon } from "./icons/balloon.svg";
+import { ReactComponent as Expanded } from "./icons/expandedButton.svg";
+import ProfilePhoto from "./ProfilePhoto";
+export default function ProfileContent({ userInfo, tweets, loginUser }) {
+  const headerClassName =
+    loginUser.userName === userInfo.userName ? true : false;
+
   return (
     <div className="profile-container">
-      <div className="profile-header"></div>
+      <div className="profile-header">
+        <div className="back-button">
+          <BackIcon />
+        </div>
+        <div className="user-info">
+          <h3>{userInfo.name}</h3>
+          <p>{tweets.length} Tweet</p>
+        </div>
+      </div>
       <div className="profile-cover">
         <img src={userInfo.coverPhoto}></img>
       </div>
       <div className="profile-content">
         <div className="profile-content-header">
           <div className="profile-photo">
-            <img src={userInfo.profilePhoto}></img>
+            <ProfilePhoto size={140} user={userInfo} />
           </div>
-          <div className="button-group"></div>
+          <div className="button-group">
+            {headerClassName === true ? (
+              <div className="one-button">
+                <div className="profile-edit-button">Profili Düzenle</div>
+              </div>
+            ) : (
+              <div className="four-button">
+                <div className="expanded-button">
+                  <Expanded />
+                </div>
+                <div className="follow-button">Takip et</div>
+              </div>
+            )}
+          </div>
         </div>
         <div className="profile-content-userInfo">
           <h2>{userInfo.name}</h2>
-          <p>{userInfo.userName}</p>
+          <p>@{userInfo.userName}</p>
           <h5>{userInfo.description}</h5>
-          <div className="birthDate">Doğum Tarihi {userInfo.birthDate}</div>
+          <div className="birthDate">
+            <Ballon />
+            Doğum tarihi: {userInfo.birthDate}
+          </div>
           <div className="follow-info">
             <div className="followers">
-              <span>{userInfo.followerCount}</span> follower
+              <span>{userInfo.followerCount}</span> Takip edilen
             </div>
             <div className="followers">
-              <span>{userInfo.followingCount}</span> following
+              <span>{userInfo.followingCount}</span> Takipçi
             </div>
           </div>
+        </div>
+      </div>
+      <div className="pages">
+        <div className="pages-bar">
+          <div className="page-name">Tweetler</div>
+          <div className="page-name">Tweetler ve yanıtlar</div>
+          <div className="page-name">Medya</div>
+          <div className="page-name">Beğeni</div>
         </div>
       </div>
     </div>

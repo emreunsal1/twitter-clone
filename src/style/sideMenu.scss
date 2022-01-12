@@ -1,6 +1,9 @@
 .side-menu-container {
+  position: sticky;
   width: 100%;
+  right: 0;
   margin-left: 30px;
+
   .side-menu-search {
     text-align: center;
     height: 40px;

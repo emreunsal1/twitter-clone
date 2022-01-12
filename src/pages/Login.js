@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { mainContext } from "../context";
+import { useMainContext } from "../context";
 import { user } from "../data";
 import { ReactComponent as TwitterIcon } from "../components/icons/twitter.svg";
 
 export default function Login() {
-  const context = useContext(mainContext);
-
-  let history = useHistory();
+  const context = useMainContext();
+  const { history } = context;
 
   const userControl = (e) => {
     e.preventDefault();
@@ -55,7 +53,6 @@ export default function Login() {
             Giriş
           </button>
         </form>
-        <Link to="./register"></Link>
       </div>
     </div>
   );

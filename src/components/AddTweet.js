@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMainContext } from "./../context";
 import AddTweetActionGroup from "./AddTweetActionGroup";
+import ProfilePhoto from "./ProfilePhoto";
 import { ReactComponent as Star } from "./icons/star.svg";
 
 export default function AddTweet() {
@@ -8,7 +9,7 @@ export default function AddTweet() {
   const [medias, setMedias] = useState([]);
 
   const context = useMainContext();
-  const { profilePhoto } = context.user.userInfo;
+  const { userInfo } = context.user;
 
   const imagePreviev = (event) => {
     const files = [...event.target.files].map((file) => {
@@ -48,7 +49,7 @@ export default function AddTweet() {
       </div>
       <div className="add-tweet-content">
         <div className="image-profile-container">
-          <img src={profilePhoto}></img>
+          <ProfilePhoto user={userInfo} size={60} />
         </div>
         <div className="textarea-container">
           <textarea

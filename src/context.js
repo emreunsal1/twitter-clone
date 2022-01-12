@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { tweet } from "./data";
 export const mainContext = createContext();
 
@@ -7,8 +8,12 @@ export default function Context({ children }) {
   const [userInfo, setUserInfo] = useState({});
   const [likedTweets, setLikedTweets] = useState([]);
 
+  let history = useHistory();
+
   const myTweets = allTweets.filter((tweet) => tweet.userId === userInfo.id);
-  const link = `/profile/${userInfo.userName}`;
+  const link = (user) => {
+    history.push(`/profile/${user.userName}`);
+  };
 
   const addNewTweet = (tweetText, medias) => {
     const current = new Date().getTime();
@@ -56,6 +61,7 @@ export default function Context({ children }) {
       allTweetsByDate,
       addLike,
     },
+    history,
   };
 
   return (

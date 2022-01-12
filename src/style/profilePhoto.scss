@@ -1,0 +1,11 @@
+.profile-photo-container {
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 99999px;
+    object-fit: cover;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
