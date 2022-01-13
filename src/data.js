@@ -53,7 +53,7 @@ export let tweet = [
   {
     id: 2,
     userId: 1,
-    date: 1640273705988,
+    date: 1640273705987,
     text: "Eski",
     like: 5,
     media: [],
@@ -67,9 +67,9 @@ export let tweet = [
     media: [],
   },
   {
-    id: 3,
+    id: 4,
     userId: 3,
-    date: 1640273705988,
+    date: 1640273705989,
     text: "Hayırsa Bi Qapakta Bize Ayır Hırdo",
     like: 8,
     media: [],

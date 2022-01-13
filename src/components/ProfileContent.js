@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactComponent as BackIcon } from "./icons/back.svg";
 import { ReactComponent as Ballon } from "./icons/balloon.svg";
 import { ReactComponent as Expanded } from "./icons/expandedButton.svg";
 import ProfilePhoto from "./ProfilePhoto";
+import ProfilePopup from "./ProfileEditPopup";
+
 export default function ProfileContent({ userInfo, tweets, loginUser }) {
+  const [profilePopupOpened, setProfilePopupOpened] = useState(false);
   const headerClassName =
     loginUser.userName === userInfo.userName ? true : false;
 
@@ -29,7 +32,12 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
           <div className="button-group">
             {headerClassName === true ? (
               <div className="one-button">
-                <div className="profile-edit-button">Profili Düzenle</div>
+                <div
+                  className="profile-edit-button"
+                  onClick={() => setProfilePopupOpened(true)}
+                >
+                  Profili Düzenle
+                </div>
               </div>
             ) : (
               <div className="four-button">
@@ -67,6 +75,10 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
           <div className="page-name">Beğeni</div>
         </div>
       </div>
+      <ProfilePopup
+        opened={profilePopupOpened}
+        setOpened={setProfilePopupOpened}
+      />
     </div>
   );
 }

@@ -6,6 +6,8 @@
 }
 $pageWidth: 1240px;
 $primary: rgb(29, 155, 240);
+$whiteText: #cccccc;
+$grayText: #6e767d;
 
 body {
   color: white;
@@ -38,3 +40,4 @@ body {
 @import "./profileContent.scss";
 @import "./profilePhoto.scss";
 @import "./popupMenu.scss";
+@import "./profilePopup.scss";

@@ -11,6 +11,10 @@ import PopupMenu from "./PopupMenu";
 export default function TweetCard({ tweet, tweetMedias }) {
   const [popupOpened, setPopupOpened] = useState(false);
 
+  useEffect(() => {
+    console.log(popupOpened);
+  }, [popupOpened]);
+
   const context = useMainContext();
 
   const userInfo = user.find((user) => user.id === tweet.userId);
@@ -78,7 +82,13 @@ export default function TweetCard({ tweet, tweetMedias }) {
           </div>
         </div>
       </div>
-      <PopupMenu style={popupStyle} items={popupItems} isOpened={popupOpened} />
+      <div className="popup">
+        <PopupMenu
+          style={popupStyle}
+          items={popupItems}
+          isOpened={popupOpened}
+        />
+      </div>
     </div>
   );
 }

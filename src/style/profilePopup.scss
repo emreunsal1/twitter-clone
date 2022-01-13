@@ -1,22 +1,147 @@
-.popup-container {
-  &-header {
-  }
-  .profile-background-photo {
-  }
-  .profile-photo {
-  }
-  .profile-content {
-    .profile-content-text {
-      input {
+.profile-popup {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  top: 0;
+  left: 0;
+  .popup-container {
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 20px;
+    max-width: 580px;
+    height: 650px;
+    z-index: 7;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 5px;
+      .header-left {
+        display: flex;
+        align-items: center;
+        .delete-icon {
+          width: 35px;
+          height: 35px;
+          padding: 10px;
+          margin-right: 15px;
+          border-radius: 99999px;
+          transition: 200ms;
+          &:hover {
+            background-color: #484e52;
+            cursor: pointer;
+          }
+          svg {
+            fill: #cccccc;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        h3 {
+          color: $whiteText;
+        }
       }
-      label {
+      .save-button {
+        color: black;
+        background-color: white;
+        border-radius: 50px;
+        padding: 5px 11px;
+        &:hover {
+          cursor: pointer;
+          background-color: $whiteText;
+        }
       }
     }
-  }
-  .popup-footer {
-    p {
+    .profile-background-photo {
+      img {
+      }
     }
-    svg {
+    .profile-photo {
+      margin-top: -70px;
+      margin-left: 10px;
+      padding: 5px;
+      margin-bottom: 15px;
+
+      .photo-container {
+        img {
+          border: 3px solid #000;
+          cursor: pointer;
+        }
+      }
+    }
+    .profile-content {
+      width: 100%;
+      .profile-content-text {
+        width: 100%;
+        padding: 15px;
+        position: relative;
+
+        input {
+          display: block;
+          height: 73px;
+          width: 100%;
+          margin-bottom: 20px;
+          border: 1px solid #484e52;
+          border-radius: 5px;
+          outline: none;
+          background-color: transparent;
+          color: $whiteText;
+          font-size: 20px;
+          font-weight: 500;
+          &:focus {
+            border: 2px solid $primary;
+
+            ~ label {
+              color: $primary;
+            }
+          }
+          &:not(:focus):invalid ~ label {
+            font-size: 20px;
+          }
+        }
+        label {
+          position: absolute;
+          color: #484e52;
+          top: 20px;
+          left: 20px;
+          font-size: 12px;
+          transition: 100ms;
+        }
+      }
+    }
+    .popup-footer {
+      padding: 10px;
+      width: 100%;
+      height: 60px;
+      border: none;
+      margin-bottom: 10px;
+      transition: 100ms;
+      &:hover {
+        background-color: #484e52;
+        cursor: pointer;
+      }
+      .content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        border: none;
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+        }
+        svg {
+          fill: $whiteText;
+        }
+      }
     }
   }
 }
