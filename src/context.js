@@ -7,6 +7,7 @@ export default function Context({ children }) {
   const [allTweets, setAllTweets] = useState(tweet);
   const [userInfo, setUserInfo] = useState({});
   const [likedTweets, setLikedTweets] = useState([]);
+  const [popupOpened, setPopupOpened] = useState(false);
 
   let history = useHistory();
 
@@ -46,6 +47,9 @@ export default function Context({ children }) {
     const otherTweets = allTweets.filter((tweet) => tweet.id !== id);
     setAllTweets([...otherTweets, likedTweet]);
   };
+  const editUserInfo = (event) => {
+    setUserInfo({ ...userInfo, [event.target.name]: event.target.value });
+  };
 
   const contextData = {
     user: {
@@ -53,6 +57,7 @@ export default function Context({ children }) {
       likedTweets,
       setUserInfo,
       link,
+      editUserInfo,
     },
     tweet: {
       myTweets,
@@ -62,6 +67,10 @@ export default function Context({ children }) {
       addLike,
     },
     history,
+    popup: {
+      popupOpened,
+      setPopupOpened,
+    },
   };
 
   return (

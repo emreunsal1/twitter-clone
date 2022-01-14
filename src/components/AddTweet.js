@@ -10,6 +10,7 @@ export default function AddTweet() {
 
   const context = useMainContext();
   const { userInfo } = context.user;
+  const { setPopupOpened } = context.popup;
 
   const imagePreviev = (event) => {
     const files = [...event.target.files].map((file) => {
@@ -32,6 +33,7 @@ export default function AddTweet() {
   const addTweet = () => {
     context.tweet.addNewTweet(newTweetText, medias);
     clearInputs();
+    setPopupOpened(false);
   };
 
   const mediasClassName = medias.length === 1 ? "add-image one" : "add-image";

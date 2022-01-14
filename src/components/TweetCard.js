@@ -11,9 +11,7 @@ import PopupMenu from "./PopupMenu";
 export default function TweetCard({ tweet, tweetMedias }) {
   const [popupOpened, setPopupOpened] = useState(false);
 
-  useEffect(() => {
-    console.log(popupOpened);
-  }, [popupOpened]);
+  useEffect(() => {}, [popupOpened]);
 
   const context = useMainContext();
 

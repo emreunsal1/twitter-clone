@@ -9,6 +9,7 @@ import ProfilePhoto from "./ProfilePhoto";
 export default function Header() {
   const context = useMainContext();
   const { link, userInfo } = context.user;
+  const { setPopupOpened } = context.popup;
   return (
     <div className="header-container">
       <div className="side-header">
@@ -27,7 +28,9 @@ export default function Header() {
         <a>Listeler</a>
         <a onClick={() => link(userInfo)}>Profil</a>
         <a>Daha Fazla</a>
-        <div className="button">Tweetle</div>
+        <div className="button" onClick={() => setPopupOpened(true)}>
+          Tweetle
+        </div>
       </div>
       <div className="footer-container">
         <div className="footer">

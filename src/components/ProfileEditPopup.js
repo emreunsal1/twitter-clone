@@ -7,13 +7,7 @@ import { userFields } from "../constants";
 
 export default function ProfileEditPopup({ opened, setOpened }) {
   const context = useMainContext();
-  const { userInfo, setUserInfo } = context.user;
-  const [user, setUser] = useState({});
-
-  const updateUser = (field, value) => {
-    setUser({ ...user, [field]: value });
-  };
-  console.log(user);
+  const { userInfo, setUserInfo, editUserInfo } = context.user;
 
   if (!opened) {
     return null;
@@ -46,8 +40,9 @@ export default function ProfileEditPopup({ opened, setOpened }) {
               <input
                 type="text"
                 name="name"
+                required
                 value={userInfo.name}
-                onChange={(e) => updateUser(userFields.name, e.target.value)}
+                onChange={(e) => editUserInfo(e)}
               />
               <label>İsim</label>
             </div>
@@ -56,10 +51,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 name="userName"
                 value={userInfo.userName}
+                onChange={(e) => editUserInfo(e)}
                 required
-                onChange={(e) =>
-                  updateUser(userFields.userName, e.target.value)
-                }
               ></input>
               <label>Kullanıcı Adı</label>
             </div>
@@ -68,9 +61,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 required
                 name="description"
-                onChange={(e) =>
-                  updateUser(userFields.description, e.target.value)
-                }
+                value={userInfo.description}
+                onChange={(e) => editUserInfo(e)}
               ></input>
               <label>Kişisel Bilgiler</label>
             </div>
@@ -79,9 +71,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 required
                 name="birthDate"
-                onChange={(e) =>
-                  updateUser(userFields.birthDate, e.target.value)
-                }
+                value={userInfo.birthDate}
+                onChange={(e) => editUserInfo(e)}
               ></input>
               <label>Doğum Tarihi</label>
             </div>

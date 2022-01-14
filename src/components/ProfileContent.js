@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useMainContext } from "../context";
+
 import { ReactComponent as BackIcon } from "./icons/back.svg";
 import { ReactComponent as Ballon } from "./icons/balloon.svg";
 import { ReactComponent as Expanded } from "./icons/expandedButton.svg";
@@ -6,7 +8,9 @@ import ProfilePhoto from "./ProfilePhoto";
 import ProfilePopup from "./ProfileEditPopup";
 
 export default function ProfileContent({ userInfo, tweets, loginUser }) {
-  const [profilePopupOpened, setProfilePopupOpened] = useState(false);
+  const context = useMainContext();
+  const { popupOpened, setPopupOpened } = context.popup;
+
   const headerClassName =
     loginUser.userName === userInfo.userName ? true : false;
 
@@ -34,7 +38,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
               <div className="one-button">
                 <div
                   className="profile-edit-button"
-                  onClick={() => setProfilePopupOpened(true)}
+                  onClick={() => setPopupOpened(true)}
                 >
                   Profili Düzenle
                 </div>
@@ -75,10 +79,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
           <div className="page-name">Beğeni</div>
         </div>
       </div>
-      <ProfilePopup
-        opened={profilePopupOpened}
-        setOpened={setProfilePopupOpened}
-      />
+      <ProfilePopup opened={popupOpened} setOpened={setPopupOpened} />
     </div>
   );
 }
