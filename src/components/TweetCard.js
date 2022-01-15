@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useMainContext } from "../context";
 import ProfilePhoto from "./ProfilePhoto";
 import TweetButtonGroup from "./TweetButtonGroup";
-import { user } from "../data";
 import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
 import { ReactComponent as DeleteIcon } from "./icons/delete.svg";
 
@@ -10,12 +9,10 @@ import PopupMenu from "./PopupMenu";
 
 export default function TweetCard({ tweet, tweetMedias }) {
   const [popupOpened, setPopupOpened] = useState(false);
-
-  useEffect(() => {}, [popupOpened]);
-
   const context = useMainContext();
+  const { allUsers } = context.user;
 
-  const userInfo = user.find((user) => user.id === tweet.userId);
+  const userInfo = allUsers.find((user) => user.id === tweet.userId);
 
   const popupItems = [
     {
