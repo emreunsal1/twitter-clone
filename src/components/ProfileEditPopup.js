@@ -7,7 +7,17 @@ import { userFields } from "../constants";
 
 export default function ProfileEditPopup({ opened, setOpened }) {
   const context = useMainContext();
-  const { userInfo, setUserInfo, editUserInfo } = context.user;
+  const { userInfo, editUserInfo } = context.user;
+  const [editUser, setEditUser] = useState(userInfo);
+
+  const onInputChange = (event) => {
+    setEditUser({ ...editUser, [event.target.name]: event.target.value });
+  };
+
+  const onSaveProfile = () => {
+    editUserInfo(editUser);
+    setOpened(false);
+  };
 
   if (!opened) {
     return null;
@@ -17,14 +27,16 @@ export default function ProfileEditPopup({ opened, setOpened }) {
     <div className="profile-popup">
       <div className="popup-container">
         <div className="popup-header">
-          <div className="header-left">
-            <div className="delete-icon" onClick={() => setOpened(false)}>
+          <div className="header-left" onClick={() => setOpened(false)}>
+            <div className="delete-icon">
               <DeleteIcon />
             </div>
             <h3>Profili Düzenle</h3>
           </div>
 
-          <div className="save-button">Kaydet</div>
+          <div className="save-button" onClick={onSaveProfile}>
+            Kaydet
+          </div>
         </div>
         <div className="profile-background-photo">
           <img src={userInfo.coverPhoto}></img>
@@ -41,8 +53,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 name="name"
                 required
-                value={userInfo.name}
-                onChange={(e) => editUserInfo(e)}
+                value={editUser.name}
+                onChange={onInputChange}
               />
               <label>İsim</label>
             </div>
@@ -50,8 +62,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
               <input
                 type="text"
                 name="userName"
-                value={userInfo.userName}
-                onChange={(e) => editUserInfo(e)}
+                value={editUser.userName}
+                onChange={onInputChange}
                 required
               ></input>
               <label>Kullanıcı Adı</label>
@@ -61,8 +73,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 required
                 name="description"
-                value={userInfo.description}
-                onChange={(e) => editUserInfo(e)}
+                value={editUser.description}
+                onChange={onInputChange}
               ></input>
               <label>Kişisel Bilgiler</label>
             </div>
@@ -71,8 +83,8 @@ export default function ProfileEditPopup({ opened, setOpened }) {
                 type="text"
                 required
                 name="birthDate"
-                value={userInfo.birthDate}
-                onChange={(e) => editUserInfo(e)}
+                value={editUser.birthDate}
+                onChange={onInputChange}
               ></input>
               <label>Doğum Tarihi</label>
             </div>

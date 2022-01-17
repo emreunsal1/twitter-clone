@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import AddTweetAction from "./AddTweetAction";
 import { ReactComponent as AddImageIcon } from "./icons/addImage.svg";
 import { ReactComponent as AddGifIcon } from "./icons/addGif.svg";
@@ -12,35 +12,24 @@ export default function AddTweetButtons({
   addTweet,
   imagePreviev,
   medias,
+  setTweetPopup,
 }) {
+  const uploadInput = useRef();
   const openFileInput = () => {
-    const input = document.querySelector("#uploadInput");
-    input.click();
+    uploadInput.current.click();
   };
-  const isEdit = () => {
-    let addClass = "send-button";
-    const addDiv = document.querySelector("#addTweet");
-    if (newTweetText || medias.length > 0) {
-      addClass = "send-button edit";
-      addDiv.className = addClass;
-      return;
-    }
-    addDiv.className = addClass;
-  };
-
-  useEffect(() => {
-    isEdit();
-  }, [newTweetText, medias]);
+  const isEdit =
+    newTweetText || medias.length > 0 ? "send-button edit" : "send-button";
 
   return (
     <div className="add-tweet-buttons">
       <input
         type="file"
         className="photo"
-        id="uploadInput"
-        accept="image/jpg, image/jpeg, video/mp4"
+        accept="image/jpg, image/jpeg"
         multiple
         hidden
+        ref={uploadInput}
         onChange={(e) => imagePreviev(e)}
       ></input>
       <div className="media-buttons">
@@ -51,7 +40,14 @@ export default function AddTweetButtons({
         <AddTweetAction icon={<Plan />} />
         <AddTweetAction icon={<Location />} />
       </div>
-      <div id="addTweet" onClick={() => addTweet()}>
+      <div
+        className={isEdit}
+        onClick={() => {
+          uploadInput.current.value = null;
+          addTweet();
+          setTweetPopup(false);
+        }}
+      >
         Tweetle
       </div>
     </div>

@@ -41,6 +41,7 @@ export const user = [
     followingCount: "200",
   },
 ];
+
 export let tweet = [
   {
     id: 1,

@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
 import { useMainContext } from "../context";
+
+import ProfilePhoto from "./ProfilePhoto";
+
 import { ReactComponent as HomeIcon } from "./icons/home.svg";
 import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
-import ProfilePhoto from "./ProfilePhoto";
+import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
+import { ReactComponent as Hastag } from "./icons/hastag.svg";
+import { ReactComponent as Call } from "./icons/call.svg";
+import { ReactComponent as Message } from "./icons/message.svg";
+import { ReactComponent as Save } from "./icons/save.svg";
+import { ReactComponent as List } from "./icons/list.svg";
+import { ReactComponent as ProfileIcon } from "./icons/profile.svg";
+import { ReactComponent as More } from "./icons/more.svg";
 
 export default function Header() {
   const context = useMainContext();
   const { link, userInfo } = context.user;
-  const { setPopupOpened } = context.popup;
+  const { setTweetPopup, tweetPopup } = context.popup;
   return (
     <div className="header-container">
       <div className="side-header">
@@ -19,16 +28,37 @@ export default function Header() {
       </div>
       <div className="list">
         <Link to="/main">
-          <HomeIcon /> Anasayfa
+          <HomeIcon />
+          <p>Anasayfa</p>
         </Link>
-        <a>Keşfet</a>
-        <a>Bildirimler</a>
-        <a>Mesajlar</a>
-        <a>Yer İşaretleri</a>
-        <a>Listeler</a>
-        <a onClick={() => link(userInfo)}>Profil</a>
-        <a>Daha Fazla</a>
-        <div className="button" onClick={() => setPopupOpened(true)}>
+        <a>
+          <Hastag />
+          <p>Keşfet </p>
+        </a>
+        <a>
+          <Call />
+          <p>Bildirimler </p>
+        </a>
+        <a>
+          <Message />
+          <p>Mesajlar </p>
+        </a>
+        <a>
+          <Save />
+          <p>İşaretleri</p>
+        </a>
+        <a>
+          <List />
+          <p>Listeler</p>
+        </a>
+        <a onClick={() => link(userInfo)}>
+          <ProfileIcon />
+          <p> Profil</p>
+        </a>
+        <a>
+          <More /> Daha Fazla
+        </a>
+        <div className="button" onClick={() => setTweetPopup(true)}>
           Tweetle
         </div>
       </div>

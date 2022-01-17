@@ -1,22 +1,28 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { useMainContext } from "../context";
 import { user } from "../data";
 import { ReactComponent as TwitterIcon } from "../components/icons/twitter.svg";
 
 export default function Login() {
   const context = useMainContext();
+  const { setUserInfo, allUsers } = context.user;
   const { history } = context;
+
+  useEffect(() => {}, []);
 
   const userControl = (e) => {
     e.preventDefault();
 
     const login = user.find(
-      (data) =>
-        data.userName === e.target.userName.value ||
-        data.password === e.target.password.value
+      (user) =>
+        user.userName === e.target.userName.value ||
+        user.password === e.target.password.value
     );
+    console.log(login);
+
     if (login) {
-      context.user.setUserInfo(login);
+      localStorage.setItem("userInfo", login.id);
+      setUserInfo(login);
       history.push("/main");
     }
   };

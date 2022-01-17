@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SideMenu from "../components/SideMenu";
 import Header from "../components/Header";
 
@@ -9,7 +9,9 @@ export default function Layout({ children }) {
         <Header />
       </div>
       <div className="content">{children}</div>
-      <SideMenu />
+      <div className="side-menu">
+        <SideMenu />
+      </div>
     </div>
   );
 }

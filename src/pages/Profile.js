@@ -10,6 +10,10 @@ export default function Profile() {
   const { userInfo, allUsers } = context.user;
   const { username } = useParams();
   const user = allUsers.find((user) => user.userName === username);
+  if (user === undefined) {
+    console.log("yarak");
+  }
+
   const tweets = allTweets.filter((tweet) => tweet.userId === user.id);
 
   return (

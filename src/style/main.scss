@@ -8,17 +8,21 @@ $pageWidth: 1240px;
 $primary: rgb(29, 155, 240);
 $whiteText: #cccccc;
 $grayText: #6e767d;
+$headerWidth: 250px;
+$sideMenuWidth: 350px;
 
-body {
-  color: white;
-  background-color: rgb(0, 0, 0);
-  font-family: "Inter", sans-serif;
-  color: #cdcdcd;
-  position: relative;
+html {
+  body {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    font-family: "Inter", sans-serif;
+    color: #cdcdcd;
+    position: relative;
 
-  .index-wrapper {
-    width: $pageWidth;
-    margin: 0 auto;
+    .index-wrapper {
+      width: $pageWidth;
+      margin: 0 auto;
+    }
   }
   img {
     width: 100%;

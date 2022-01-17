@@ -4,8 +4,8 @@ import TweetCard from "./TweetCard";
 export default function TweetWrapper({ tweets }) {
   return (
     <div className="tweet-container">
-      {tweets.map((tweet) => (
-        <TweetCard tweet={tweet} tweetMedias={tweet.media.length} />
+      {tweets.map((tweet, index) => (
+        <TweetCard key={index} tweet={tweet} tweetMedias={tweet.media.length} />
       ))}
     </div>
   );

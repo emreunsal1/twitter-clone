@@ -9,6 +9,7 @@ import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
 
 export default function SideMenu() {
   const [users, setUsers] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const context = useMainContext();
   const { userInfo } = context.user;
 
@@ -20,16 +21,17 @@ export default function SideMenu() {
     recommended();
   }, []);
 
+  window.addEventListener("scroll", function (e) {
+    setScrollPosition(window.scrollY);
+  });
+
   return (
-    <div className="side-menu-container">
+    <div className="side-menu-container" style={{ top: `${scrollPosition}px` }}>
       <div className="side-menu-search">
         <div className="svg-container">
           <SearchIcon />
         </div>
         <input type="text" placeholder="Twitter'da Ara"></input>
-        <div className="delete-button">
-          <DeleteIcon />
-        </div>
       </div>
       <div className="agenda-container">
         <div className="agenda-header">
@@ -75,8 +77,8 @@ export default function SideMenu() {
           <h3>Kimi Takip Etmeli</h3>
         </div>
         <div className="card-content">
-          {users.map((user) => (
-            <Recommended user={user} />
+          {users.map((user, index) => (
+            <Recommended key={index} user={user} />
           ))}
         </div>
         <div className="text">

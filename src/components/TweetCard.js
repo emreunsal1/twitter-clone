@@ -10,15 +10,20 @@ import PopupMenu from "./PopupMenu";
 export default function TweetCard({ tweet, tweetMedias }) {
   const [popupOpened, setPopupOpened] = useState(false);
   const context = useMainContext();
-  const { allUsers } = context.user;
+  const { allUsers, userInfo } = context.user;
+  const { deleteTweet } = context.tweet;
 
-  const userInfo = allUsers.find((user) => user.id === tweet.userId);
+  const tweetOwner = allUsers.find((user) => user.id === tweet.userId);
+
+  const isMyTweet = tweet.userId === userInfo.id ? true : false;
 
   const popupItems = [
     {
       icon: <DeleteIcon />,
       content: "Sil",
-      onClick: () => {},
+      onClick: () => {
+        deleteTweet(tweet.id);
+      },
       iconColor: "#F4212E",
     },
   ];
@@ -36,13 +41,13 @@ export default function TweetCard({ tweet, tweetMedias }) {
     <div className="tweet-card">
       <div className="tweet-content">
         <div className="profile-photo">
-          <ProfilePhoto user={userInfo} size={45} />
+          <ProfilePhoto user={tweetOwner} size={45} />
         </div>
         <div className="tweet-info">
           <div className="header">
             <div className="user-info">
-              <h4>{userInfo.name}</h4>
-              <h5>{"@" + userInfo.userName}</h5>
+              <h4>{tweetOwner.name}</h4>
+              <h5>{"@" + tweetOwner.userName}</h5>
             </div>
             <div
               className="expanded-button"
@@ -51,17 +56,31 @@ export default function TweetCard({ tweet, tweetMedias }) {
               onBlur={() => setPopupOpened(false)}
             >
               <ExpandedIcon />
+              <div className="popup">
+                {isMyTweet && (
+                  <PopupMenu
+                    style={popupStyle}
+                    items={popupItems}
+                    isOpened={popupOpened}
+                    setPopupOpened={setPopupOpened}
+                  />
+                )}
+              </div>
             </div>
           </div>
           <div className="tweet-text">{tweet.text}</div>
           <div className="tweet-media">
-            {tweet.media.map((media) =>
+            {tweet.media.map((media, index) =>
               media.type === "jpg" ? (
-                <div id="image-container" className={tweetMediaOneElement()}>
+                <div
+                  id="image-container"
+                  key={index}
+                  className={tweetMediaOneElement()}
+                >
                   <img src={media.url} alt="foto" />
                 </div>
               ) : (
-                <div className="image-container">
+                <div className="image-container" key={index}>
                   <video
                     width={300}
                     height={300}
@@ -76,13 +95,6 @@ export default function TweetCard({ tweet, tweetMedias }) {
             <TweetButtonGroup tweet={tweet} />
           </div>
         </div>
-      </div>
-      <div className="popup">
-        <PopupMenu
-          style={popupStyle}
-          items={popupItems}
-          isOpened={popupOpened}
-        />
       </div>
     </div>
   );

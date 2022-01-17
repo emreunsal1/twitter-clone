@@ -4,13 +4,12 @@ import AddTweetActionGroup from "./AddTweetActionGroup";
 import ProfilePhoto from "./ProfilePhoto";
 import { ReactComponent as Star } from "./icons/star.svg";
 
-export default function AddTweet() {
+export default function AddTweet({ setTweetPopup }) {
   const [newTweetText, setNewTweetText] = useState("");
   const [medias, setMedias] = useState([]);
 
   const context = useMainContext();
   const { userInfo } = context.user;
-  const { setPopupOpened } = context.popup;
 
   const imagePreviev = (event) => {
     const files = [...event.target.files].map((file) => {
@@ -27,13 +26,10 @@ export default function AddTweet() {
   const clearInputs = () => {
     setMedias([]);
     setNewTweetText("");
-    const uploadInput = document.getElementById("uploadInput");
-    uploadInput.value = null;
   };
   const addTweet = () => {
     context.tweet.addNewTweet(newTweetText, medias);
     clearInputs();
-    setPopupOpened(false);
   };
 
   const mediasClassName = medias.length === 1 ? "add-image one" : "add-image";
@@ -62,9 +58,9 @@ export default function AddTweet() {
             {newTweetText}
           </textarea>
           <div className="tweet-medias">
-            {medias.map((media) =>
+            {medias.map((media, index) =>
               media.type === "jpg" ? (
-                <div id="add-medias" className={mediasClassName}>
+                <div id="add-medias" key={index} className={mediasClassName}>
                   <img src={media.url} width={300} height={"300"}></img>
                   <div
                     className="delete-button"
@@ -74,7 +70,7 @@ export default function AddTweet() {
                   </div>
                 </div>
               ) : (
-                <div className="add-video">
+                <div className="add-video" key={index}>
                   <video
                     controls="true"
                     src={media.url}
@@ -91,6 +87,7 @@ export default function AddTweet() {
             imagePreviev={imagePreviev}
             addTweet={addTweet}
             medias={medias}
+            setTweetPopup={setTweetPopup}
           />
         </div>
       </div>

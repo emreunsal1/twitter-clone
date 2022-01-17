@@ -9,7 +9,7 @@ import ProfilePopup from "./ProfileEditPopup";
 
 export default function ProfileContent({ userInfo, tweets, loginUser }) {
   const context = useMainContext();
-  const { popupOpened, setPopupOpened } = context.popup;
+  const [profilePopup, setProfilePopup] = useState(false);
 
   const headerClassName =
     loginUser.userName === userInfo.userName ? true : false;
@@ -38,7 +38,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
               <div className="one-button">
                 <div
                   className="profile-edit-button"
-                  onClick={() => setPopupOpened(true)}
+                  onClick={() => setProfilePopup(true)}
                 >
                   Profili Düzenle
                 </div>
@@ -79,7 +79,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
           <div className="page-name">Beğeni</div>
         </div>
       </div>
-      <ProfilePopup opened={popupOpened} setOpened={setPopupOpened} />
+      <ProfilePopup opened={profilePopup} setOpened={setProfilePopup} />
     </div>
   );
 }
