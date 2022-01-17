@@ -3,8 +3,9 @@ import { useMainContext } from "./../context";
 import AddTweetActionGroup from "./AddTweetActionGroup";
 import ProfilePhoto from "./ProfilePhoto";
 import { ReactComponent as Star } from "./icons/star.svg";
+import { ReactComponent as Back } from "./icons/back.svg";
 
-export default function AddTweet({ setTweetPopup }) {
+export default function AddTweet({ tweetPopup, setTweetPopup }) {
   const [newTweetText, setNewTweetText] = useState("");
   const [medias, setMedias] = useState([]);
 
@@ -16,7 +17,7 @@ export default function AddTweet({ setTweetPopup }) {
       const url = URL.createObjectURL(file);
       return {
         url,
-        type: file.name.match(/\.jpeg|jpg/) ? "jpg" : "mp4",
+        type: file.name.match(/\.jpeg|jpg/) ? "jpg" : "jpg",
       };
     });
 
@@ -42,8 +43,14 @@ export default function AddTweet({ setTweetPopup }) {
   return (
     <div className="add-tweet-container">
       <div className="add-tweet-header">
-        <h2>Anasayfa</h2>
-        <Star />
+        {tweetPopup ? (
+          <Back onClick={() => setTweetPopup(false)} />
+        ) : (
+          <>
+            <h2>Anasayfa</h2>
+            <Star />
+          </>
+        )}
       </div>
       <div className="add-tweet-content">
         <div className="image-profile-container">

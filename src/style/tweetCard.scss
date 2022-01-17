@@ -34,6 +34,13 @@
               color: #4e5358;
             }
           }
+          @media only screen and (max-width: 600px) {
+            .header {
+            }
+            .user-info {
+              display: block;
+            }
+          }
           .expanded-button {
             width: 30px;
             height: 30px;
@@ -59,6 +66,11 @@
 
         .tweet-text {
           margin-bottom: 8px;
+        }
+        @media only screen and (max-width: 600px) {
+          .tweet-text {
+            display: block;
+          }
         }
         .tweet-media {
           width: 100%;
@@ -90,6 +102,11 @@
           }
         }
       }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .tweet-container {
+      height: auto;
     }
   }
 }

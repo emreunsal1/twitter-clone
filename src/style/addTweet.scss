@@ -24,6 +24,11 @@
     .image-profile-container {
       margin-right: 30px;
     }
+    @media only screen and (max-width: 600px) {
+      .image-profile-container {
+        display: none;
+      }
+    }
     .textarea-container {
       width: 500px;
       textarea {
@@ -126,6 +131,11 @@
       pointer-events: all;
       opacity: 1;
       user-select: all;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .add-tweet-buttons {
+      width: 100%;
     }
   }
 }

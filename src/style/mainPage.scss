@@ -5,9 +5,41 @@
   .header {
     width: $headerWidth;
   }
+  @media only screen and (max-width: 600px) {
+    .header {
+      display: none;
+      width: 0;
+    }
+  }
   .content {
     border: 1px solid #4e5358;
     border-top: none;
     width: $pageWidth - $headerWidth - $sideMenuWidth;
+    .open-mobile-menu {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .content {
+      border-bottom: 1px solid #4e5358;
+      border-left: none;
+      border-right: none;
+      width: 100%;
+      .open-mobile-menu {
+        width: 50px;
+        height: 50px;
+        border-radius: 99999px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        background-color: $primary;
+        svg {
+          fill: white;
+        }
+      }
+    }
   }
 }
