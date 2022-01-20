@@ -5,7 +5,7 @@ export default function TweetWrapper({ tweets }) {
   return (
     <div className="tweet-container">
       {tweets.map((tweet, index) => (
-        <TweetCard key={index} tweet={tweet} tweetMedias={tweet.media.length} />
+        <TweetCard key={index} tweet={tweet} />
       ))}
     </div>
   );

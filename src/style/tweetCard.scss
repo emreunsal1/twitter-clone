@@ -4,12 +4,12 @@
 
   .tweet-card {
     border-bottom: 1px solid #4e5358;
-    position: relative;
 
     .tweet-content {
       width: 100%;
       display: flex;
       padding: 10px;
+      position: relative;
 
       .profile-photo {
         margin-right: 10px;
@@ -65,7 +65,9 @@
         }
 
         .tweet-text {
+          display: block;
           margin-bottom: 8px;
+          width: 100%;
         }
         @media only screen and (max-width: 600px) {
           .tweet-text {

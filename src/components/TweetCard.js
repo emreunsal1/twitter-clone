@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useMainContext } from "../context";
 import ProfilePhoto from "./ProfilePhoto";
+import Slider from "./SliderMenu";
 import TweetButtonGroup from "./TweetButtonGroup";
 import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
 import { ReactComponent as DeleteIcon } from "./icons/delete.svg";
 
 import PopupMenu from "./PopupMenu";
 
-export default function TweetCard({ tweet, tweetMedias }) {
+export default function TweetCard({ tweet }) {
   const [popupOpened, setPopupOpened] = useState(false);
+  const [sliderPopup, setSliderPopup] = useState(false);
   const context = useMainContext();
   const { allUsers, userInfo } = context.user;
   const { deleteTweet } = context.tweet;
@@ -39,6 +41,11 @@ export default function TweetCard({ tweet, tweetMedias }) {
 
   return (
     <div className="tweet-card">
+      <Slider
+        sliderPopup={sliderPopup}
+        setSliderPopup={setSliderPopup}
+        medias={tweet.media}
+      />
       <div className="tweet-content">
         <div className="profile-photo">
           <ProfilePhoto user={tweetOwner} size={45} />
@@ -76,6 +83,7 @@ export default function TweetCard({ tweet, tweetMedias }) {
                   id="image-container"
                   key={index}
                   className={tweetMediaOneElement()}
+                  onClick={() => setSliderPopup(true)}
                 >
                   <img src={media.url} alt="foto" />
                 </div>

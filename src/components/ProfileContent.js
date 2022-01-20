@@ -17,7 +17,10 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
   return (
     <div className="profile-container">
       <div className="profile-header">
-        <div className="back-button">
+        <div
+          className="back-button"
+          onClick={() => context.history.push("/main")}
+        >
           <BackIcon />
         </div>
         <div className="user-info">
@@ -74,7 +77,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
       <div className="pages">
         <div className="pages-bar">
           <div className="page-name">Tweetler</div>
-          <div className="page-name">Tweetler ve yanıtlar</div>
+          <div className="page-name">yanıtlar</div>
           <div className="page-name">Medya</div>
           <div className="page-name">Beğeni</div>
         </div>

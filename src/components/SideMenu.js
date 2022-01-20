@@ -1,25 +1,15 @@
 import React, { useEffect, useState } from "react";
 import AgentaContent from "./AgentaContent";
 import Recommended from "./Recommended";
-import { user } from "../data";
 import { useMainContext } from "../context";
 import { ReactComponent as OptinosIcon } from "./icons/options.svg";
 import { ReactComponent as SearchIcon } from "./icons/search.svg";
 import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
 
 export default function SideMenu() {
-  const [users, setUsers] = useState([]);
   const [scrollPosition, setScrollPosition] = useState(0);
   const context = useMainContext();
-  const { userInfo } = context.user;
-
-  const recommended = () => {
-    const users = user.filter((user) => user.id !== userInfo.id);
-    setUsers(users);
-  };
-  useEffect(() => {
-    recommended();
-  }, []);
+  const { userInfo, allUsers } = context.user;
 
   window.addEventListener("scroll", function (e) {
     setScrollPosition(window.scrollY);
@@ -77,9 +67,10 @@ export default function SideMenu() {
           <h3>Kimi Takip Etmeli</h3>
         </div>
         <div className="card-content">
-          {users.map((user, index) => (
-            <Recommended key={index} user={user} />
-          ))}
+          {allUsers.map(
+            (user, index) =>
+              user.id !== userInfo.id && <Recommended key={index} user={user} />
+          )}
         </div>
         <div className="text">
           <p>Daha Fazla Göster</p>

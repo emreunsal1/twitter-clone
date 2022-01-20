@@ -7,9 +7,10 @@ export default function TweetPopup() {
   const { tweetPopup, setTweetPopup } = context.popup;
 
   if (!tweetPopup) {
+    document.body.style.overflow = "auto";
     return null;
   }
-
+  document.body.style.overflow = "hidden";
   document.body.addEventListener("click", (e) => {
     console.log(e.target.className);
     if (e.target.className === "add-tweet-popup") setTweetPopup(false);

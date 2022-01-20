@@ -1,0 +1,60 @@
+.slider {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(97, 86, 86, 0.294);
+  z-index: 9999999;
+  padding: 200px;
+  .delete-button {
+    background-color: transparent;
+    border: 1px solid white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 99999px;
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    padding: 10px;
+    cursor: pointer;
+    height: 30px;
+    align-items: center;
+    svg {
+      fill: white;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .delete-button {
+      background-color: black;
+    }
+  }
+
+  .slider-container {
+    width: 70%;
+    height: auto;
+    .image-container {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .slider-container {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  .slider {
+    padding: 0px 30px;
+  }
+}
