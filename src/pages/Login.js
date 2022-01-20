@@ -5,7 +5,7 @@ import { ReactComponent as TwitterIcon } from "../components/icons/twitter.svg";
 
 export default function Login() {
   const context = useMainContext();
-  const { setUserInfo, allUsers } = context.user;
+  const { setUserInfo } = context.user;
   const { history } = context;
 
   useEffect(() => {}, []);
@@ -18,7 +18,6 @@ export default function Login() {
         user.userName === e.target.userName.value ||
         user.password === e.target.password.value
     );
-    console.log(login);
 
     if (login) {
       localStorage.setItem("userInfo", login.id);
@@ -39,7 +38,7 @@ export default function Login() {
               name="userName"
               className="input-username"
               type="text"
-              value="kaan"
+              value="emre.json"
               required
             ></input>
             <label className="username">User Name</label>
@@ -48,7 +47,7 @@ export default function Login() {
             <input
               name="password"
               className="input-password"
-              value="kaan"
+              value="emre"
               type="text"
               required
             ></input>

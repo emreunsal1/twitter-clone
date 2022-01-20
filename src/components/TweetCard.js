@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMainContext } from "../context";
 import ProfilePhoto from "./ProfilePhoto";
+import PopupMenu from "./PopupMenu";
 import Slider from "./SliderMenu";
 import TweetButtonGroup from "./TweetButtonGroup";
 import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
 import { ReactComponent as DeleteIcon } from "./icons/delete.svg";
 
-import PopupMenu from "./PopupMenu";
-
 export default function TweetCard({ tweet }) {
   const [popupOpened, setPopupOpened] = useState(false);
   const [sliderPopup, setSliderPopup] = useState(false);
+
   const context = useMainContext();
   const { allUsers, userInfo } = context.user;
   const { deleteTweet } = context.tweet;
 
   const tweetOwner = allUsers.find((user) => user.id === tweet.userId);
-
   const isMyTweet = tweet.userId === userInfo.id ? true : false;
-
+  const popupStyle = { top: 10, right: 10 };
   const popupItems = [
     {
       icon: <DeleteIcon />,
@@ -29,12 +28,9 @@ export default function TweetCard({ tweet }) {
       iconColor: "#F4212E",
     },
   ];
-  const popupStyle = { top: 10, right: 10 };
 
   const tweetMediaOneElement = () => {
     if (tweet.media.length === 1) {
-      console.log("if içi çalıştı");
-      return "image-container one";
     }
     return "image-container";
   };

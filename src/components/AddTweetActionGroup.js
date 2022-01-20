@@ -15,9 +15,11 @@ export default function AddTweetButtons({
   setTweetPopup,
 }) {
   const uploadInput = useRef();
+
   const openFileInput = () => {
     uploadInput.current.click();
   };
+
   const isEdit =
     newTweetText || medias.length > 0 ? "send-button edit" : "send-button";
 

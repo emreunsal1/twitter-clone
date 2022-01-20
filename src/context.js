@@ -1,6 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { tweet, user } from "./data";
+
 export const mainContext = createContext();
 
 export default function Context({ children }) {
@@ -9,16 +10,11 @@ export default function Context({ children }) {
   const [likedTweets, setLikedTweets] = useState([]);
   const [tweetPopup, setTweetPopup] = useState(false);
   const [allUsers, setAllUsers] = useState(user);
-
   let history = useHistory();
 
   useEffect(() => {
     loginUser();
   }, [allUsers]);
-
-  useEffect(() => {
-    loginUser();
-  }, []);
 
   const loginUser = () => {
     const loginUser = allUsers.find(
@@ -47,6 +43,7 @@ export default function Context({ children }) {
     };
     setAllTweets([newTweet, ...allTweets]);
   };
+
   const allTweetsByDate = () =>
     [...allTweets].sort((a, b) => {
       return b.date - a.date;
@@ -65,6 +62,7 @@ export default function Context({ children }) {
     const otherTweets = allTweets.filter((tweet) => tweet.id !== id);
     setAllTweets([...otherTweets, likedTweet]);
   };
+
   const editUserInfo = (data) => {
     const newAllUsers = allUsers.filter((user) => user.id !== data.id);
     setAllUsers([...newAllUsers, data]);

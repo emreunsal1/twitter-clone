@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AgentaContent from "./AgentaContent";
 import Recommended from "./Recommended";
 import { useMainContext } from "../context";
 import { ReactComponent as OptinosIcon } from "./icons/options.svg";
 import { ReactComponent as SearchIcon } from "./icons/search.svg";
-import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
 
 export default function SideMenu() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -21,7 +20,7 @@ export default function SideMenu() {
         <div className="svg-container">
           <SearchIcon />
         </div>
-        <input type="text" placeholder="Twitter'da Ara"></input>
+        <input type="text" placeholder="Twitter'da Ara" />
       </div>
       <div className="agenda-container">
         <div className="agenda-header">

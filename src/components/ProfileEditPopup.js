@@ -3,7 +3,6 @@ import { ReactComponent as ArrowIcon } from "./icons/arrow.svg";
 import ProfilePhoto from "./ProfilePhoto";
 import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
 import { useMainContext } from "../context";
-import { userFields } from "../constants";
 
 export default function ProfileEditPopup({ opened, setOpened }) {
   const context = useMainContext();

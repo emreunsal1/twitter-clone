@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useMainContext } from "../context";
 
 import ProfilePhoto from "./ProfilePhoto";
 
-import { ReactComponent as HomeIcon } from "./icons/home.svg";
-import { ReactComponent as ExpandedIcon } from "./icons/expandedButton.svg";
-import { ReactComponent as TwitterIcon } from "./icons/twitter.svg";
-import { ReactComponent as Hastag } from "./icons/hastag.svg";
-import { ReactComponent as Call } from "./icons/call.svg";
-import { ReactComponent as Message } from "./icons/message.svg";
-import { ReactComponent as Save } from "./icons/save.svg";
-import { ReactComponent as List } from "./icons/list.svg";
-import { ReactComponent as ProfileIcon } from "./icons/profile.svg";
-import { ReactComponent as More } from "./icons/more.svg";
+import {
+  Call,
+  ExpandedIcon,
+  Hastag,
+  HomeIcon,
+  List,
+  Message,
+  More,
+  ProfileIcon,
+  Save,
+  TwitterIcon,
+} from "./icons";
 
 export default function Header() {
   const context = useMainContext();
   const { link, userInfo } = context.user;
-  const { setTweetPopup, tweetPopup } = context.popup;
+  const { setTweetPopup } = context.popup;
   return (
     <div className="header-container">
       <div className="side-header">

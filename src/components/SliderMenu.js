@@ -3,10 +3,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ReactComponent as DeleteIcon } from "./icons/deleteIcon.svg";
+
 export default function SliderMenu({ sliderPopup, setSliderPopup, medias }) {
   document.body.addEventListener("click", (e) => {
     if (e.target.className === "slider") setSliderPopup(false);
   });
+
+  if (!sliderPopup) {
+    document.body.style.overflow = "auto";
+    return null;
+  }
+
+  document.body.style.overflow = "hidden";
+
   const settings = {
     dots: true,
     infinite: true,
@@ -17,12 +26,6 @@ export default function SliderMenu({ sliderPopup, setSliderPopup, medias }) {
     initialSlide: 0,
   };
 
-  if (!sliderPopup) {
-    document.body.style.overflow = "auto";
-    return null;
-  }
-
-  document.body.style.overflow = "hidden";
   return (
     <div className="slider">
       <div className="delete-button" onClick={() => setSliderPopup(false)}>
@@ -33,7 +36,7 @@ export default function SliderMenu({ sliderPopup, setSliderPopup, medias }) {
         <Slider {...settings}>
           {medias.map((media) => (
             <div className="image-container">
-              <img src={media.url}></img>
+              <img src={media.url} alt=""></img>
             </div>
           ))}
         </Slider>

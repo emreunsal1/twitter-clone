@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMainContext } from "./../context";
 import AddTweetActionGroup from "./AddTweetActionGroup";
 import ProfilePhoto from "./ProfilePhoto";
 import { ReactComponent as Star } from "./icons/star.svg";
 import { ReactComponent as Back } from "./icons/back.svg";
 
-export default function AddTweet({ tweetPopup, setTweetPopup }) {
+export default function AddTweet() {
   const [newTweetText, setNewTweetText] = useState("");
   const [medias, setMedias] = useState([]);
 
   const context = useMainContext();
   const { userInfo } = context.user;
+  const { tweetPopup, setTweetPopup } = context.popup;
 
   const imagePreviev = (event) => {
     const files = [...event.target.files].map((file) => {

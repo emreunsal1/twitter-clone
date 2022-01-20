@@ -9,7 +9,7 @@ export default function ProfilePhoto({ user, size }) {
       className="profile-photo-container"
       style={{ height: size, width: size }}
     >
-      <img src={user.profilePhoto} onClick={() => link(user)}></img>
+      <img src={user.profilePhoto} alt="" onClick={() => link(user)}></img>
     </div>
   );
 }

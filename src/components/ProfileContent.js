@@ -29,7 +29,7 @@ export default function ProfileContent({ userInfo, tweets, loginUser }) {
         </div>
       </div>
       <div className="profile-cover">
-        <img src={userInfo.coverPhoto}></img>
+        <img src={userInfo.coverPhoto} alt=""></img>
       </div>
       <div className="profile-content">
         <div className="profile-content-header">
