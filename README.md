@@ -28,7 +28,7 @@ With npm:
 npm run start
 ```
 ## 🔴 Demo
-You can visit the demo from: [Cwitter Demo](https://twitter-clone-nine-tan.vercel.app/)
+You can visit the demo from: [Twitter Demo](https://twitter-clone-nine-tan.vercel.app/)
 #### 🔐 Auth info
 | | Username | Password |
 | -- | ------------- | ------------- |
