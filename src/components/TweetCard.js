@@ -29,11 +29,8 @@ export default function TweetCard({ tweet }) {
     },
   ];
 
-  const tweetMediaOneElement = () => {
-    if (tweet.media.length === 1) {
-    }
-    return "image-container";
-  };
+  const tweetMediaOneElement =
+    tweet.media.length > 2 ? "image-container multi" : "image-container";
 
   return (
     <div className="tweet-card">
@@ -72,13 +69,17 @@ export default function TweetCard({ tweet }) {
             </div>
           </div>
           <div className="tweet-text">{tweet.text}</div>
-          <div className="tweet-media">
+          <div
+            className={
+              tweet.media.length > 2 ? "tweet-media multi" : "tweet-media"
+            }
+          >
             {tweet.media.map((media, index) =>
               media.type === "jpg" ? (
                 <div
                   id="image-container"
                   key={index}
-                  className={tweetMediaOneElement()}
+                  className={tweetMediaOneElement}
                   onClick={() => setSliderPopup(true)}
                 >
                   <img src={media.url} alt="foto" />

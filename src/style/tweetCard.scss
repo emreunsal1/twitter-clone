@@ -77,12 +77,14 @@
         .tweet-media {
           width: 100%;
           display: flex;
-          flex-wrap: wrap;
           border-radius: 10px;
           overflow: hidden;
+          &.multi {
+            flex-wrap: wrap;
+          }
           .image-container {
-            width: calc(50%);
-            height: 200px;
+            width: 100%;
+            height: 400px;
 
             &:not(:last-child) {
             }
@@ -91,15 +93,16 @@
               height: 100%;
               object-fit: cover;
             }
-          }
-          & .one {
-            width: 100%;
-            margin: 0 auto;
-            min-height: 400px;
-            img {
-              width: 100%;
-              margin: 0;
-              height: 100%;
+            &.multi {
+              width: 50%;
+              margin: 0 auto;
+              height: 200px;
+
+              img {
+                width: 100%;
+                margin: 0;
+                height: 100%;
+              }
             }
           }
         }
